@@ -1,14 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Open+Sans&family=Poppins:wght@400;500;600;700&display=swap');
-
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@700&family=Open+Sans&display=swap');
 :root{
-  --background:hsl(0, 100%, 74%) ;
-  --header-background:hsl(249, 10%, 26%)
+  --background:hsl(240, 78%, 98%)
 }
 
 body {
+  position: relative;
   background: var(--background);
-  min-height: 100vh;
-  font-family: 'Poppins', sans-serif;
+  font-family: 'Montserrat', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }

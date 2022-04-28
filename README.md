@@ -1,10 +1,10 @@
-# Sign Up Form
+# Pricing App
 
 # ![preview](./src/assets/screenshot.png)
 
-Achallenge made for Frontend Mentor.
+A challenge made for Frontend Mentor.
 
-> Check it out: [https://FlashCodX.github.io/sign-up-form/](https://FlashCodX.github.io/sign-up-form/)
+> Check it out: [https://FlashCodX.github.io/pricing-app/](https://FlashCodX.github.io/pricing-app/)
 
 ## Tech
 

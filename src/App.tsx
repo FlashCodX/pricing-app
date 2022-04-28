@@ -1,151 +1,78 @@
-import backgroundImg from "./assets/bg-intro-desktop.png";
-import { useState } from "react";
 import styles from "./styles/App.module.css";
 
-function App() {
-  const [allowSubmit, setSubmit] = useState(true);
-  const [firstname, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+import { useState } from "react";
+const bg_top = require("./assets/bg-top.svg").default;
+const bg_bottom = require("./assets/bg-bottom.svg").default;
 
+function App() {
+  const [value, setValue] = useState(false);
   const {
     container,
     backgroundContainer,
-    pageContent,
-    pageInfo,
-    trialContainer,
-    formContainer,
-    termsAndServices,
+    contentContainer,
+    heading,
+    switchElement,
+    slider,
+    cardsContainer,
+    card,
     attribution,
+    sub_type,
   } = styles;
 
-  const trySubmit = () => {
-    setSubmit(
-      firstname !== "" && lastName !== "" && email !== "" && password !== ""
-    );
-  };
   return (
     <>
       <main className={container}>
         <div className={backgroundContainer}>
-          <img src={backgroundImg} alt="background" />
+          <img src={bg_bottom} alt="" />
+          <img src={bg_top} alt="" />
         </div>
-        <div className={pageContent}>
-          <div className={pageInfo}>
-            <h1>Learn to code by watching others</h1>
-            <p>
-              See how experienced developers solve problems in real-time.
-              Watching scripted tutorials is great, but understanding how
-              developers think is invaluable.
-            </p>
+        <div className={contentContainer}>
+          <div className={heading}>
+            <h1>Our Pricing</h1>
+            <div className={sub_type}>
+              <div>Annualy</div>
+              <label className={switchElement}>
+                <input
+                  onChange={(e) => setValue(e.target.checked)}
+                  type="checkbox"
+                />
+                <span className={slider}></span>
+              </label>
+              <div>Monthly</div>
+            </div>
           </div>
-          <div className={trialContainer}>
-            <header>
-              <div>
-                Try it free 7 days <span>then $20/mo. thereafter</span>
-              </div>
-            </header>
 
-            <div className={formContainer}>
+          <div className={cardsContainer}>
+            <div className={card}>
+              <h1>Basic</h1>
               <div>
-                <input
-                  style={
-                    firstname || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={firstname}
-                  onChange={(e) => setFirstName(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="First Name"
-                />
-                <p
-                  style={
-                    firstname || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  First Name cannot be empty
-                </p>
+                <span>$</span> {value ? "19.99" : "199.99"}
               </div>
+              <p>500 GB Storage</p>
+              <p>2 Users Allowed</p>
+              <p>Send Up to 3 GB</p>
+              <button>Learn More</button>
+            </div>
+            <div className={card}>
+              <h1>Professional</h1>
               <div>
-                <input
-                  style={
-                    lastName || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={lastName}
-                  onChange={(e) => setLastName(e.target.value)}
-                  type="text"
-                  required
-                  placeholder="Last Name"
-                />
-                <p
-                  style={
-                    lastName || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Last Name Cannot be empty
-                </p>
+                <span>$</span> {value ? "24.99" : "249.99"}
               </div>
-              <div>
-                <input
-                  style={
-                    email || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={email}
-                  onChange={(e) => setEmail(e.target.value)}
-                  type="email"
-                  required
-                  placeholder="Email Address"
-                />
-                <p
-                  style={
-                    email || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Email Cannot be empty
-                </p>
-              </div>
+              <p>1 TB Storage</p>
+              <p>5 Users Allowed</p>
+              <p>Send up to 10 GB</p>
+              <button>Learn More</button>
+            </div>
 
+            <div className={card}>
+              <h1>Master</h1>
               <div>
-                <input
-                  style={
-                    password || allowSubmit
-                      ? { border: "1px solid lightgray" }
-                      : { border: "2px solid red" }
-                  }
-                  value={password}
-                  onChange={(e) => setPassword(e.target.value)}
-                  type="password"
-                  required
-                  placeholder="Password"
-                />
-                <p
-                  style={
-                    password || allowSubmit
-                      ? { visibility: "hidden" }
-                      : { visibility: "visible" }
-                  }
-                >
-                  Password Cannot be empty
-                </p>
+                <span>$</span> {value ? "39.99" : "399.99"}
               </div>
-              <button onClick={() => trySubmit()}>Claim yout free Trial</button>
-              <p className={termsAndServices}>
-                By clicking the button, you are agreeing to our{" "}
-                <a href="/">Terms and Services</a>
-              </p>
+              <p>2 TB Storage</p>
+              <p>10 Users Allowed</p>
+              <p>Send up to 20 GB</p>
+              <button>Learn More</button>
             </div>
           </div>
         </div>
@@ -154,7 +81,7 @@ function App() {
       <footer className={attribution}>
         Challenge by{" "}
         <a
-          href="https://www.frontendmentor.io/challenges/intro-component-with-signup-form-5cf91bd49edda32581d28fd1"
+          href="https://www.frontendmentor.io/challenges/pricing-component-with-toggle-8vPwRMIC"
           target="_blank"
           rel="noreferrer"
         >
